@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync discord and caelestia schemes
+
+[Service]
+Type=oneshot
+ExecStart=/home/diamond/.local/share/caelestia/discord/monitor/update.fish

@@ -1,0 +1,13 @@
+# Ignore everything in .config
+/*
+
+# But do NOT ignore these specific folders
+!niri/
+!waybar/
+!cava/
+!swww/
+!mako/
+!networkmanager-dmenu/
+!zsh/
+!systemd/
+!.gitignore

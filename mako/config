@@ -1,0 +1,20 @@
+font=Iosevka Curly Ax 10
+output=DP-1
+
+layer=top
+anchor=top-right
+default-timeout=2500
+padding=10
+
+# Colors
+border-color=#cba6f7
+background-color=#1e1e2e
+progress-color=over #313244
+height=200
+border-radius=5
+
+# Button Behavior
+on-button-right=dismiss
+on-touch=invoke-default-action
+
+group-by=app-name,body

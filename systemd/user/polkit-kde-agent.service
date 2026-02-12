@@ -1,0 +1,11 @@
+q[Unit]
+Description=Polkit Authentication Agent (KDE)
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/lib/polkit-kde-authentication-agent-1
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

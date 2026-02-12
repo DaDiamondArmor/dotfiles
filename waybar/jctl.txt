@@ -1,0 +1,287 @@
+Oct 19 18:26:08 thinkcat waybar[78111]: [2025-10-19 18:26:08.574] [info] Bar configured (width: 1536, height: 41) for output: eDP-1
+Oct 19 18:26:13 thinkcat warp-svc[899]: 2025-10-19T12:56:13.409Z DEBUG collect_device_state: actor_device_state::collector: close time.busy=6.19µs time.idle=6.52µs
+Oct 19 18:26:21 thinkcat waybar[78111]: pango_layout_get_line_count: assertion 'layout != NULL' failed
+Oct 19 18:26:21 thinkcat waybar[78111]: pango_layout_get_pixel_extents: assertion 'PANGO_IS_LAYOUT (layout)' failed
+Oct 19 18:26:28 thinkcat wpa_supplicant[995]: wlan0: CTRL-EVENT-SIGNAL-CHANGE above=1 signal=-28 noise=9999 txrate=585100
+Oct 19 18:26:42 thinkcat waybar[78111]: object_ref: assertion '!object_already_finalized' failed
+Oct 19 18:26:42 thinkcat kernel: waybar[78111]: segfault at 556fe8cfc5af ip 00007ff8bf89c658 sp 00007ffdd88c93e0 error 4 in libglib-2.0.so.0.8600.0[25658,7ff8bf895000+a7000] likely on CPU 11 (core 5, socket 0)
+Oct 19 18:26:42 thinkcat kernel: Code: 8b 44 24 08 85 c0 74 3e 4c 8b 33 4d 85 ed 74 7a 45 31 ff 0f 1f 40 00 66 66 2e 0f 1f 84 00 00 00 00 00 49 8b 04 24 48 8b 75 c8 <4a> 8b 3c f8 41 ff d5 4b 89 04 fe 41 8b 44 24 08 49 83 c7 01 41 39
+Oct 19 18:26:42 thinkcat systemd-coredump[78334]: Process 78111 (waybar) of user 1000 terminated abnormally with signal 11/SEGV, processing...
+Oct 19 18:26:42 thinkcat systemd[1]: Started Process Core Dump (PID 78334/UID 0).
+Oct 19 18:26:42 thinkcat systemd[1]: Started Pass systemd-coredump journal entries to relevant user for potential DrKonqi handling.
+Oct 19 18:26:44 thinkcat systemd-coredump[78335]: [🡕] Process 78111 (waybar) of user 1000 dumped core.
+
+                                                  Stack trace of thread 78111:
+                                                  #0  0x00007ff8bf89c658 g_ptr_array_copy (libglib-2.0.so.0 + 0x25658)
+                                                  #1  0x00007ff8bf03aba3 pango_attr_list_copy (libpango-1.0.so.0 + 0x21ba3)
+                                                  #2  0x00007ff8bf04898d n/a (libpango-1.0.so.0 + 0x2f98d)
+                                                  #3  0x00007ff8bf04bfdd n/a (libpango-1.0.so.0 + 0x32fdd)
+                                                  #4  0x00007ff8bf050ef1 n/a (libpango-1.0.so.0 + 0x37ef1)
+                                                  #5  0x00007ff8bf05bd4a pango_renderer_draw_layout (libpango-1.0.so.0 + 0x42d4a)
+                                                  #6  0x00007ff8bf08e538 pango_cairo_show_layout (libpangocairo-1.0.so.0 + 0xa538)
+                                                  #7  0x00007ff8bfff4726 gtk_render_layout (libgtk-3.so.0 + 0x3f4726)
+                                                  #8  0x00007ff8bff59e41 n/a (libgtk-3.so.0 + 0x359e41)
+                                                  #9  0x00007ff8bfe7ba25 n/a (libgtk-3.so.0 + 0x27ba25)
+                                                  #10 0x00007ff8bfe8f082 n/a (libgtk-3.so.0 + 0x28f082)
+                                                  #11 0x00007ff8bff555d5 n/a (libgtk-3.so.0 + 0x3555d5)
+                                                  #12 0x00007ff8c00df550 n/a (libgtk-3.so.0 + 0x4df550)
+                                                  #13 0x00007ff8bfe840e3 gtk_container_propagate_draw (libgtk-3.so.0 + 0x2840e3)
+                                                  #14 0x00007ff8bfe841fd n/a (libgtk-3.so.0 + 0x2841fd)
+                                                  #15 0x00007ff8bfee16f4 n/a (libgtk-3.so.0 + 0x2e16f4)
+                                                  #16 0x00007ff8c00df550 n/a (libgtk-3.so.0 + 0x4df550)
+                                                  #17 0x00007ff8bfe840e3 gtk_container_propagate_draw (libgtk-3.so.0 + 0x2840e3)
+                                                  #18 0x00007ff8bfe841fd n/a (libgtk-3.so.0 + 0x2841fd)
+                                                  #19 0x00007ff8bfe21801 n/a (libgtk-3.so.0 + 0x221801)
+                                                  #20 0x00007ff8bfe7ba25 n/a (libgtk-3.so.0 + 0x27ba25)
+                                                  #21 0x00007ff8bfe8f082 n/a (libgtk-3.so.0 + 0x28f082)
+                                                  #22 0x00007ff8bfe21dd5 n/a (libgtk-3.so.0 + 0x221dd5)
+                                                  #23 0x00007ff8c00df550 n/a (libgtk-3.so.0 + 0x4df550)
+                                                  #24 0x00007ff8bfe840e3 gtk_container_propagate_draw (libgtk-3.so.0 + 0x2840e3)
+                                                  #25 0x00007ff8bfe841fd n/a (libgtk-3.so.0 + 0x2841fd)
+                                                  #26 0x00007ff8bfe21801 n/a (libgtk-3.so.0 + 0x221801)
+                                                  #27 0x00007ff8bfe7ba25 n/a (libgtk-3.so.0 + 0x27ba25)
+                                                  #28 0x00007ff8bfe8f082 n/a (libgtk-3.so.0 + 0x28f082)
+                                                  #29 0x00007ff8bfe21dd5 n/a (libgtk-3.so.0 + 0x221dd5)
+                                                  #30 0x00007ff8c00df550 n/a (libgtk-3.so.0 + 0x4df550)
+                                                  #31 0x00007ff8bfe840e3 gtk_container_propagate_draw (libgtk-3.so.0 + 0x2840e3)
+                                                  #32 0x00007ff8bfe841fd n/a (libgtk-3.so.0 + 0x2841fd)
+                                                  #33 0x00007ff8c00df550 n/a (libgtk-3.so.0 + 0x4df550)
+                                                  #34 0x00007ff8c00ede43 n/a (libgtk-3.so.0 + 0x4ede43)
+                                                  #35 0x00007ff8bff71a24 gtk_main_do_event (libgtk-3.so.0 + 0x371a24)
+                                                  #36 0x00007ff8c03671c7 n/a (libgdk-3.so.0 + 0x271c7)
+                                                  #37 0x00007ff8c037974f n/a (libgdk-3.so.0 + 0x3974f)
+                                                  #38 0x00007ff8c037f1c2 n/a (libgdk-3.so.0 + 0x3f1c2)
+                                                  #39 0x00007ff8c037f412 n/a (libgdk-3.so.0 + 0x3f412)
+                                                  #40 0x00007ff8bfa01c77 n/a (libgobject-2.0.so.0 + 0x32c77)
+                                                  #41 0x00007ff8bfa01d89 g_signal_emit_valist (libgobject-2.0.so.0 + 0x32d89)
+                                                  #42 0x00007ff8bfa01e44 g_signal_emit (libgobject-2.0.so.0 + 0x32e44)
+                                                  #43 0x00007ff8c0375461 n/a (libgdk-3.so.0 + 0x35461)
+                                                  #44 0x00007ff8c0360872 n/a (libgdk-3.so.0 + 0x20872)
+                                                  #45 0x00007ff8bf8d7e51 n/a (libglib-2.0.so.0 + 0x60e51)
+                                                  #46 0x00007ff8bf8d5f4d n/a (libglib-2.0.so.0 + 0x5ef4d)
+                                                  #47 0x00007ff8bf8d7617 n/a (libglib-2.0.so.0 + 0x60617)
+                                                  #48 0x00007ff8bf8d7825 g_main_context_iteration (libglib-2.0.so.0 + 0x60825)
+                                                  #49 0x00007ff8bfb12756 g_application_run (libgio-2.0.so.0 + 0xe4756)
+                                                  #50 0x0000556a7e2651f7 n/a (/usr/bin/waybar + 0x671f7)
+                                                  #51 0x0000556a7e262e26 main (/usr/bin/waybar + 0x64e26)
+                                                  #52 0x00007ff8bee27675 n/a (libc.so.6 + 0x27675)
+                                                  #53 0x00007ff8bee27729 __libc_start_main (libc.so.6 + 0x27729)
+                                                  #54 0x0000556a7e285f85 n/a (/usr/bin/waybar + 0x87f85)
+
+                                                  Stack trace of thread 78118:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0da6e read (libc.so.6 + 0x10da6e)
+                                                  #4  0x0000556a7e2d7e91 n/a (/usr/bin/waybar + 0xd9e91)
+                                                  #5  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78119:
+                                                  #0  0x00007ff8bef1876d syscall (libc.so.6 + 0x11876d)
+                                                  #1  0x00007ff8bf9067ee g_cond_wait (libglib-2.0.so.0 + 0x8f7ee)
+                                                  #2  0x00007ff8bf89d1cd n/a (libglib-2.0.so.0 + 0x261cd)
+                                                  #3  0x00007ff8bf89d23d g_async_queue_pop (libglib-2.0.so.0 + 0x2623d)
+                                                  #4  0x00007ff8beb7851c n/a (libpangoft2-1.0.so.0 + 0xc51c)
+                                                  #5  0x00007ff8bf90e87c n/a (libglib-2.0.so.0 + 0x9787c)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78120:
+                                                  #0  0x00007ff8bef1876d syscall (libc.so.6 + 0x11876d)
+                                                  #1  0x00007ff8bf9067ee g_cond_wait (libglib-2.0.so.0 + 0x8f7ee)
+                                                  #2  0x00007ff8bf89d1cd n/a (libglib-2.0.so.0 + 0x261cd)
+                                                  #3  0x00007ff8bf90f447 n/a (libglib-2.0.so.0 + 0x98447)
+                                                  #4  0x00007ff8bf90e87c n/a (libglib-2.0.so.0 + 0x9787c)
+                                                  #5  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #6  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78124:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee9381c n/a (libc.so.6 + 0x9381c)
+                                                  #3  0x00007ff8bee95ede pthread_cond_wait (libc.so.6 + 0x95ede)
+                                                  #4  0x00007ff8bf712399 pa_threaded_mainloop_wait (libpulse.so.0 + 0x34399)
+                                                  #5  0x00007ff8be253b29 pa_simple_read (libpulse-simple.so.0 + 0x2b29)
+                                                  #6  0x00007ff8bf51ace1 input_pulse (libcava.so + 0x12ce1)
+                                                  #7  0x0000556a7e47cd3d n/a (/usr/bin/waybar + 0x27ed3d)
+                                                  #8  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #9  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #10 0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #11 0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78125:
+                                                  #0  0x00007ff8bee931ce n/a (libc.so.6 + 0x931ce)
+                                                  #1  0x00007ff8bee9381c n/a (libc.so.6 + 0x9381c)
+                                                  #2  0x00007ff8bee96312 pthread_cond_clockwait (libc.so.6 + 0x96312)
+                                                  #3  0x0000556a7e47b649 n/a (/usr/bin/waybar + 0x27d649)
+                                                  #4  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #5  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78126:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0d4ee __poll (libc.so.6 + 0x10d4ee)
+                                                  #4  0x00007ff8bf710b6a n/a (libpulse.so.0 + 0x32b6a)
+                                                  #5  0x00007ff8bf6fa661 pa_mainloop_poll (libpulse.so.0 + 0x1c661)
+                                                  #6  0x00007ff8bf704793 pa_mainloop_iterate (libpulse.so.0 + 0x26793)
+                                                  #7  0x00007ff8bf704861 pa_mainloop_run (libpulse.so.0 + 0x26861)
+                                                  #8  0x00007ff8bf715d32 n/a (libpulse.so.0 + 0x37d32)
+                                                  #9  0x00007ff8be55146f n/a (libpulsecommon-17.0.so + 0x5d46f)
+                                                  #10 0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #11 0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78121:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0da36 ppoll (libc.so.6 + 0x10da36)
+                                                  #4  0x00007ff8bf8d7744 n/a (libglib-2.0.so.0 + 0x60744)
+                                                  #5  0x00007ff8bf8d7825 g_main_context_iteration (libglib-2.0.so.0 + 0x60825)
+                                                  #6  0x00007ff8bf8d7872 n/a (libglib-2.0.so.0 + 0x60872)
+                                                  #7  0x00007ff8bf90e87c n/a (libglib-2.0.so.0 + 0x9787c)
+                                                  #8  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #9  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78129:
+                                                  #0  0x00007ff8bee931ce n/a (libc.so.6 + 0x931ce)
+                                                  #1  0x00007ff8bee9381c n/a (libc.so.6 + 0x9381c)
+                                                  #2  0x00007ff8bee96312 pthread_cond_clockwait (libc.so.6 + 0x96312)
+                                                  #3  0x0000556a7e3eb53a n/a (/usr/bin/waybar + 0x1ed53a)
+                                                  #4  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #5  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78122:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0da36 ppoll (libc.so.6 + 0x10da36)
+                                                  #4  0x00007ff8bf8d7744 n/a (libglib-2.0.so.0 + 0x60744)
+                                                  #5  0x00007ff8bf8d79d7 g_main_loop_run (libglib-2.0.so.0 + 0x609d7)
+                                                  #6  0x00007ff8bfb48264 n/a (libgio-2.0.so.0 + 0x11a264)
+                                                  #7  0x00007ff8bf90e87c n/a (libglib-2.0.so.0 + 0x9787c)
+                                                  #8  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #9  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78131:
+                                                  #0  0x00007ff8bee931ce n/a (libc.so.6 + 0x931ce)
+                                                  #1  0x00007ff8bee9381c n/a (libc.so.6 + 0x9381c)
+                                                  #2  0x00007ff8bee96312 pthread_cond_clockwait (libc.so.6 + 0x96312)
+                                                  #3  0x0000556a7e3148cf n/a (/usr/bin/waybar + 0x1168cf)
+                                                  #4  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #5  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78135:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0d4ee __poll (libc.so.6 + 0x10d4ee)
+                                                  #4  0x00007ff8bf710b6a n/a (libpulse.so.0 + 0x32b6a)
+                                                  #5  0x00007ff8bf6fa661 pa_mainloop_poll (libpulse.so.0 + 0x1c661)
+                                                  #6  0x00007ff8bf704793 pa_mainloop_iterate (libpulse.so.0 + 0x26793)
+                                                  #7  0x00007ff8bf704861 pa_mainloop_run (libpulse.so.0 + 0x26861)
+                                                  #8  0x00007ff8bf715d32 n/a (libpulse.so.0 + 0x37d32)
+                                                  #9  0x00007ff8be55146f n/a (libpulsecommon-17.0.so + 0x5d46f)
+                                                  #10 0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #11 0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78138:
+                                                  #0  0x00007ff8bef1876d syscall (libc.so.6 + 0x11876d)
+                                                  #1  0x00007ff8bdd29626 n/a (libglycin-2.so.0 + 0x329626)
+                                                  #2  0x00007ff8bdbfbcc1 n/a (libglycin-2.so.0 + 0x1fbcc1)
+                                                  #3  0x00007ff8bdc049da n/a (libglycin-2.so.0 + 0x2049da)
+                                                  #4  0x00007ff8bdd68cf1 n/a (libglycin-2.so.0 + 0x368cf1)
+                                                  #5  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #6  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78127:
+                                                  #0  0x00007ff8bee931ce n/a (libc.so.6 + 0x931ce)
+                                                  #1  0x00007ff8bee9381c n/a (libc.so.6 + 0x9381c)
+                                                  #2  0x00007ff8bee96312 pthread_cond_clockwait (libc.so.6 + 0x96312)
+                                                  #3  0x0000556a7e44edaf n/a (/usr/bin/waybar + 0x250daf)
+                                                  #4  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #5  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #6  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #7  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78132:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0da6e read (libc.so.6 + 0x10da6e)
+                                                  #4  0x0000556a7e31043d n/a (/usr/bin/waybar + 0x11243d)
+                                                  #5  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #6  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #7  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #8  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78137:
+                                                  #0  0x00007ff8bdbfd3f2 n/a (libglycin-2.so.0 + 0x1fd3f2)
+                                                  #1  0x00007ff8bdbf4092 n/a (libglycin-2.so.0 + 0x1f4092)
+                                                  #2  0x00007ff8bdbf2349 n/a (libglycin-2.so.0 + 0x1f2349)
+                                                  #3  0x00007ff8bdbfb4dd n/a (libglycin-2.so.0 + 0x1fb4dd)
+                                                  #4  0x00007ff8bdd68cf1 n/a (libglycin-2.so.0 + 0x368cf1)
+                                                  #5  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #6  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78130:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef1acf5 epoll_wait (libc.so.6 + 0x11acf5)
+                                                  #4  0x0000556a7e3e9879 n/a (/usr/bin/waybar + 0x1eb879)
+                                                  #5  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #6  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #7  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #8  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78133:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0da6e read (libc.so.6 + 0x10da6e)
+                                                  #4  0x0000556a7e31494f n/a (/usr/bin/waybar + 0x11694f)
+                                                  #5  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #6  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #7  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #8  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78134:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef1acf5 epoll_wait (libc.so.6 + 0x11acf5)
+                                                  #4  0x0000556a7e43d50b n/a (/usr/bin/waybar + 0x23f50b)
+                                                  #5  0x0000556a7e2a2f42 n/a (/usr/bin/waybar + 0xa4f42)
+                                                  #6  0x00007ff8bf2e55a4 execute_native_thread_routine (libstdc++.so.6 + 0xe55a4)
+                                                  #7  0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #8  0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+
+                                                  Stack trace of thread 78136:
+                                                  #0  0x00007ff8bee9f042 n/a (libc.so.6 + 0x9f042)
+                                                  #1  0x00007ff8bee931ac n/a (libc.so.6 + 0x931ac)
+                                                  #2  0x00007ff8bee931f4 n/a (libc.so.6 + 0x931f4)
+                                                  #3  0x00007ff8bef0d4ee __poll (libc.so.6 + 0x10d4ee)
+                                                  #4  0x00007ff8bf710b6a n/a (libpulse.so.0 + 0x32b6a)
+                                                  #5  0x00007ff8bf6fa661 pa_mainloop_poll (libpulse.so.0 + 0x1c661)
+                                                  #6  0x00007ff8bf704793 pa_mainloop_iterate (libpulse.so.0 + 0x26793)
+                                                  #7  0x00007ff8bf704861 pa_mainloop_run (libpulse.so.0 + 0x26861)
+                                                  #8  0x00007ff8bf715d32 n/a (libpulse.so.0 + 0x37d32)
+                                                  #9  0x00007ff8be55146f n/a (libpulsecommon-17.0.so + 0x5d46f)
+                                                  #10 0x00007ff8bee969cb n/a (libc.so.6 + 0x969cb)
+                                                  #11 0x00007ff8bef1aa0c n/a (libc.so.6 + 0x11aa0c)
+                                                  ELF object binary architecture: AMD x86-64
+Oct 19 18:26:44 thinkcat systemd[1]: systemd-coredump@28-32777-78334_78335-0.service: Deactivated successfully.
+Oct 19 18:26:44 thinkcat systemd[1]: systemd-coredump@28-32777-78334_78335-0.service: Consumed 1.696s CPU time, 413.6M memory peak.
+Oct 19 18:26:44 thinkcat systemd[1945]: waybar.service: Main process exited, code=dumped, status=11/SEGV
+Oct 19 18:26:44 thinkcat systemd[1945]: waybar.service: Failed with result 'core-dump'.
+Oct 19 18:26:44 thinkcat systemd[1945]: waybar.service: Consumed 6.760s CPU time, 225.7M memory peak.
+Oct 19 18:26:44 thinkcat systemd[1945]: waybar.service: Scheduled restart job, restart counter is at 6.
