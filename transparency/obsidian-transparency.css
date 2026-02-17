@@ -1,0 +1,13 @@
+/* Target the primary rendering containers */
+body, .app-container {
+    background-color: transparent !important;
+}
+
+/* Replace solid hex variables with rgba values to define the translucency matrix */
+.theme-dark {
+    --background-primary: rgba(0, 0, 0, 0.4) !important;
+    --background-primary-alt: rgba(0, 0, 0, 0.4) !important;
+    --background-secondary: rgba(0, 0, 0, 0.5) !important;
+    --background-secondary-alt: rgba(0, 0, 0, 0.5) !important;
+    --workspace-background-translucent: transparent !important;
+}

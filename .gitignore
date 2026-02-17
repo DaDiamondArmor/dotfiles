@@ -5,9 +5,12 @@
 !niri/
 !waybar/
 !cava/
-!swww/
+!awww/
 !mako/
 !networkmanager-dmenu/
 !zsh/
 !systemd/
+!xkblayout/
+!transparency/
+!klassy/
 !.gitignore

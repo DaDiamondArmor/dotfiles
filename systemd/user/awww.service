@@ -5,8 +5,7 @@ Requisite=graphical-session.target
 
 [Service]
 Environment=RUST_BACKTRACE=1
-ExecStartPre=/bin/sh -c 'while [ -z "$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -type s -name "wayland-*")" ]; do sleep 0.1; done'
-ExecStart=/usr/bin/swww-daemon 
+# ExecStartPre=/bin/sh -c 'while [ -z "$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -type s -name "wayland-*")" ]; do sleep 0.1; done'
+ExecStart=/usr/bin/awww-daemon 
 Restart=on-failure
 RestartSec=5
-

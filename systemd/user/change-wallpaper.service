@@ -1,9 +1,9 @@
 [Unit]
 Description=Change wallpaper using SWWW
-After=swww.service
+After=awww.service
 
 [Service]
-ExecStart=/bin/bash /home/diamond/.config/swww/swww.sh
+ExecStart=/bin/bash /home/diamond/.config/awww/awww.sh
 
 [Install]
 WantedBy=graphical-session.target

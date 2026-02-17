@@ -1,0 +1,55 @@
+/* 1. Global Variable Nuke - Apply to absolutely everything */
+:root, .theme-dark, .theme-light, * {
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-secondary-alt: transparent !important;
+    --background-tertiary: transparent !important;
+    --bg-base-primary: transparent !important;
+    --bg-base-secondary: transparent !important;
+    --bg-base-tertiary: transparent !important;
+    --bg-overlay-app-frame: transparent !important;
+    --bg-overlay-chat: transparent !important;
+    
+    /* Keep floating menus slightly visible but translucent */
+    --background-floating: rgba(0, 0, 0, 0.5) !important;
+    /* Text box visibility */
+    --channeltextarea-background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 2. Brighter Base Tint (Changed from 0.6 to 0.15) */
+body, #app-mount, .app-mount {
+    background: transparent !important;
+    background-color: rgba(0, 0, 0, 0.15) !important; 
+}
+
+/* 3. Universal Structure Nuke - Using '*=' (contains) so Discord can't hide classes */
+[class*="app_"],
+[class*="bg_"],
+[class*="base_"],
+[class*="guilds_"],
+[class*="sidebar_"],
+[class*="panels_"],
+[class*="container_"],
+[class*="chat_"],
+[class*="chatContent_"],
+[class*="members_"],
+[class*="wrapper_"],
+[class*="scroller_"],
+[class*="privateChannels_"],
+[class*="searchBar_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 4. SETTINGS MENU NUKE */
+[class*="layer_"],
+[class*="layers_"],
+[class*="standardSidebarView_"],
+[class*="sidebarRegion_"],
+[class*="contentRegion_"],
+[class*="customColumn_"],
+[class*="background_"],
+[class*="settings_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
