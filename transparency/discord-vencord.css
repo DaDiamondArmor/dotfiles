@@ -1,4 +1,8 @@
-/* 1. Global Variable Nuke - Apply to absolutely everything */
+/* =========================================================
+   1. GLOBAL TRANSPARENCY & TINT
+   ========================================================= */
+
+/* Nuke all background variables so layers don't stack */
 :root, .theme-dark, .theme-light, * {
     --background-primary: transparent !important;
     --background-secondary: transparent !important;
@@ -16,40 +20,103 @@
     --channeltextarea-background: rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 2. Brighter Base Tint (Changed from 0.6 to 0.15) */
+/* Apply the base dark tint (The "sunglasses" layer) */
 body, #app-mount, .app-mount {
     background: transparent !important;
+    /* Adjust the 0.15 value to make it darker/lighter */
     background-color: rgba(0, 0, 0, 0.15) !important; 
 }
 
-/* 3. Universal Structure Nuke - Using '*=' (contains) so Discord can't hide classes */
-[class*="app_"],
-[class*="bg_"],
-[class*="base_"],
-[class*="guilds_"],
-[class*="sidebar_"],
-[class*="panels_"],
-[class*="container_"],
-[class*="chat_"],
-[class*="chatContent_"],
-[class*="members_"],
-[class*="wrapper_"],
-[class*="scroller_"],
-[class*="privateChannels_"],
-[class*="searchBar_"] {
+/* =========================================================
+   2. COLOR & READABILITY (Absolute Pure White)
+   ========================================================= */
+
+/* Force absolutely all UI text, headers, and icons to pure white */
+:root, .theme-dark, .theme-light {
+    --text-normal: #ffffff !important;
+    --text-muted: #ffffff !important; 
+    --header-primary: #ffffff !important;
+    --header-secondary: #ffffff !important;
+    
+    /* This section controls the top toolbar and message hover icons */
+    --interactive-normal: #ffffff !important; 
+    --interactive-hover: #ffffff !important;  
+    --interactive-active: #ffffff !important; 
+    --interactive-muted: #ffffff !important;  
+    --channels-default: #ffffff !important;   
+}
+
+/* Force messages, markdown, usernames, and stubborn icons to pure white */
+[class*="messageContent_"],
+[class*="markup_"],
+[class*="username_"], 
+[class*="name_"],
+[class*="icon_"] {    
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   3. STRUCTURAL CLEANUP
+   ========================================================= */
+
+/* Nuke backgrounds on all main structural elements */
+[class*="app_"], [class*="bg_"], [class*="base_"],
+[class*="guilds_"], [class*="sidebar_"], [class*="panels_"],
+[class*="container_"], [class*="chat_"], [class*="chatContent_"],
+[class*="members_"], [class*="wrapper_"], [class*="scroller_"],
+[class*="privateChannels_"], [class*="searchBar_"] {
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* 4. SETTINGS MENU NUKE */
-[class*="layer_"],
-[class*="layers_"],
-[class*="standardSidebarView_"],
-[class*="sidebarRegion_"],
-[class*="contentRegion_"],
-[class*="customColumn_"],
-[class*="background_"],
-[class*="settings_"] {
+/* Nuke backgrounds on Settings menus and popouts */
+[class*="layer_"], [class*="layers_"],
+[class*="standardSidebarView_"], [class*="sidebarRegion_"],
+[class*="contentRegion_"], [class*="customColumn_"],
+[class*="background_"], [class*="settings_"] {
     background: transparent !important;
     background-color: transparent !important;
 }
+
+/* 1. Timestamps */
+[class*="timestamp_"], time {
+    color: #ffffff !important;
+}
+/* =========================================================
+   4. UN-YEET THE PINGS (Notification Badges)
+   ========================================================= */
+/* Our previous 'base_' nuke caught 'baseShapeRound_', 
+   so we force the red pill back online here. */
+[class*="numberBadge_"], 
+[class*="baseShapeRound_"],
+[class*="unreadMentionsIndicator_"],
+[class*="mention_"],
+[class*="badge_"] {
+    background: #f23f43 !important; /* Discord's native ping red */
+    background-color: #f23f43 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+/* =========================================================
+   5. RESTORE KEYBOARD & HOVER HIGHLIGHTS
+   ========================================================= */
+/* Re-establish the base modifier variables for selections */
+:root, .theme-dark, .theme-light {
+    --background-modifier-hover: rgba(255, 255, 255, 0.1) !important;
+    --background-modifier-active: rgba(255, 255, 255, 0.15) !important;
+    --background-modifier-selected: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Force autocomplete popouts, member lists, and menus to show the highlight */
+[class*="autocomplete_"] [aria-selected="true"],
+[class*="item_"][aria-selected="true"],
+[class*="selectable_"][aria-selected="true"],
+[class*="member_"][aria-selected="true"],
+[class*="interactive_"][aria-selected="true"],
+[class*="item_"]:hover,
+[class*="selectable_"]:hover,
+[class*="member_"]:hover,
+[class*="interactive_"]:hover {
+    background-color: var(--background-modifier-selected) !important;
+    border-radius: 4px !important; /* Keeps the highlight looking clean */
+}@
