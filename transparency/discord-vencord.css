@@ -87,11 +87,7 @@ body, #app-mount, .app-mount {
    ========================================================= */
 /* Our previous 'base_' nuke caught 'baseShapeRound_', 
    so we force the red pill back online here. */
-[class*="numberBadge_"], 
-[class*="baseShapeRound_"],
-[class*="unreadMentionsIndicator_"],
-[class*="mention_"],
-[class*="badge_"] {
+[class*="baseShapeRound_"]{
     background: #f23f43 !important; /* Discord's native ping red */
     background-color: #f23f43 !important;
     color: #ffffff !important;
