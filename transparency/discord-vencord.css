@@ -27,6 +27,7 @@ body, #app-mount, .app-mount {
     background-color: rgba(0, 0, 0, 0.15) !important; 
 }
 
+
 /* =========================================================
    2. COLOR & READABILITY (Absolute Pure White)
    ========================================================= */
@@ -93,26 +94,43 @@ body, #app-mount, .app-mount {
     color: #ffffff !important;
     opacity: 1 !important;
 }
+
 /* =========================================================
-   5. RESTORE KEYBOARD & HOVER HIGHLIGHTS
+   5. RESTORE ALL HOVERS & KEYBOARD HIGHLIGHTS
    ========================================================= */
-/* Re-establish the base modifier variables for selections */
-:root, .theme-dark, .theme-light {
-    --background-modifier-hover: rgba(255, 255, 255, 0.1) !important;
-    --background-modifier-active: rgba(255, 255, 255, 0.15) !important;
-    --background-modifier-selected: rgba(255, 255, 255, 0.2) !important;
+
+/* 1. Chat Messages (Mouse Hover & Keyboard Focus) */
+[class*="messageListItem_"]:hover,
+[class*="messageListItem_"]:focus-within {
+    background-color: rgba(255, 255, 255, 0.08) !important; 
+    border-radius: 8px !important;
 }
 
-/* Force autocomplete popouts, member lists, and menus to show the highlight */
-[class*="autocomplete_"] [aria-selected="true"],
-[class*="item_"][aria-selected="true"],
-[class*="selectable_"][aria-selected="true"],
-[class*="member_"][aria-selected="true"],
-[class*="interactive_"][aria-selected="true"],
-[class*="item_"]:hover,
-[class*="selectable_"]:hover,
+/* 2. Autocomplete, Ping Menus, and Command Lists (Keyboard Navigation) */
+[role="option"][aria-selected="true"],
+[role="option"]:hover,
+[role="menuitem"][aria-selected="true"],
+[role="menuitem"]:hover,
+[class*="autocomplete_"] [aria-selected="true"] {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 6px !important;
+}
+
+/* 3. Member List, Channels, and Context Menus */
 [class*="member_"]:hover,
-[class*="interactive_"]:hover {
-    background-color: var(--background-modifier-selected) !important;
-    border-radius: 4px !important; /* Keeps the highlight looking clean */
-}@
+[class*="member_"][aria-selected="true"],
+[class*="interactive_"]:hover,
+[class*="interactive_"][aria-selected="true"],
+[class*="selectable_"]:hover,
+[class*="item_"]:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 6px !important;
+}
+
+/* Ensure inner wrappers don't block the highlights */
+[role="option"][aria-selected="true"] > div,
+[class*="autocomplete_"] [aria-selected="true"] [class*="base_"],
+[class*="member_"]:hover [class*="layout_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
