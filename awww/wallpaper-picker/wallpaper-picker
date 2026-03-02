@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+CONFIG_FILE="$HOME/.config/awww/chooser.conf"
+CACHE_DIR="$HOME/.cache/awww/thumbnails"
+ROFI_THEME="$HOME/.config/awww/rofi.rasi"
+
+if [[ -f "$CONFIG_FILE" ]]; then
+    source "$CONFIG_FILE"
+else
+    WALLPAPERS_DIR="$HOME/wallpapers"
+fi
+
+if [[ ! -d "$WALLPAPERS_DIR" ]]; then
+    echo "Error: Wallpaper directory not found at $WALLPAPERS_DIR"
+    exit 1
+fi
+
+mkdir -p "$CACHE_DIR"
+
+IM_CMD="magick"
+if ! command -v magick &> /dev/null; then
+    IM_CMD="convert"
+fi
+
+# Scan, generate thumbnails, and pipe to Rofi
+SELECTION=$(find "$WALLPAPERS_DIR" -maxdepth 1 -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.webp" \) | \
+while IFS= read -r img; do
+    filename=$(basename "$img")
+    cache_file="$CACHE_DIR/${filename}.png"
+
+    # Generate thumbnail if needed. Note: increased size to 256x256 so it looks sharp in the larger Rofi grid
+    if [[ ! -f "$cache_file" ]] || [[ "$img" -nt "$cache_file" ]]; then
+        $IM_CMD "${img}[0]" -thumbnail 256x256 -background none -gravity center -extent 256x256 "$cache_file" 2>/dev/null
+    fi
+
+    # Rofi uses the exact same protocol as Fuzzel!
+    printf "%s\0icon\x1f%s\n" "$filename" "$cache_file"
+
+# Launch Rofi with our custom grid theme
+done | rofi -dmenu -show-icons -theme "$ROFI_THEME" -p "Wallpapers")
+
+if [[ -n "$SELECTION" ]]; then
+    FULL_PATH="$WALLPAPERS_DIR/$SELECTION"
+
+    if [[ -f "$FULL_PATH" ]]; then
+        awww img "$FULL_PATH"
+        systemctl --user restart awww.service
+
+        AWWW_SCRIPT="$HOME/.config/awww/awww.sh"
+        if [[ -f "$AWWW_SCRIPT" ]]; then
+            sed -i "s|^awww img.*|awww img \"$FULL_PATH\"|" "$AWWW_SCRIPT"
+            echo "Successfully applied!"
+        fi
+    fi
+fi

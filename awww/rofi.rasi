@@ -1,0 +1,71 @@
+* {
+    /* Glassy neutral palette */
+    bg-color: #00000090;
+    text-col: #ffffffff;
+    sel-bg: #ffffff20;
+
+    background-color: transparent;
+    text-color: @text-col;
+    font: "monospace 12";
+}
+
+window {
+    background-color: @bg-color;
+    width: 60%;
+    height: 70%;
+    padding: 20px;
+    border-radius: 12px;
+    border: 0px; /* Removed the border entirely */
+}
+
+mainbox {
+    spacing: 15px;
+}
+
+inputbar {
+    padding: 10px;
+    border-radius: 8px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @text-col;
+    font: "monospace bold 12";
+    padding: 0 5px 0 0;
+}
+
+entry {
+    text-color: @text-col;
+}
+
+listview {
+    columns: 4;
+    lines: 3;
+    spacing: 5px;
+    flow: horizontal;
+    fixed-columns: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @sel-bg; /* Soft translucent white highlight */
+    text-color: @text-col;
+    border: 0px; /* Removed the selection border */
+}
+
+element-icon {
+    size: 200px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 5px 0 0 0;
+    text-color: inherit;
+}

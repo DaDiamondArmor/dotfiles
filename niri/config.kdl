@@ -414,6 +414,7 @@ binds {
     Mod+S { spawn "dolphin"; }
     Mod+N { spawn "networkmanager_dmenu"; }
     Super+Alt+L { spawn "swaylock"; }
+    Mod+B {spawn "/home/diamond/.config/awww/wallpaper-picker/wallpaper-picker";}
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

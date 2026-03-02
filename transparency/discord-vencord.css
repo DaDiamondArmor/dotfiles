@@ -49,9 +49,7 @@ body, #app-mount, .app-mount {
 
 /* Force messages, markdown, usernames, and stubborn icons to pure white */
 [class*="messageContent_"],
-[class*="markup_"],
-[class*="username_"], 
-[class*="name_"],
+[class*="markup_"], 
 [class*="icon_"] {    
     color: #ffffff !important;
 }
@@ -129,8 +127,21 @@ body, #app-mount, .app-mount {
 
 /* Ensure inner wrappers don't block the highlights */
 [role="option"][aria-selected="true"] > div,
-[class*="autocomplete_"] [aria-selected="true"] [class*="base_"],
+[class*="autocomplete_"] [aria-sele[class*="name_"],cted="true"] [class*="base_"],
 [class*="member_"]:hover [class*="layout_"] {
     background: transparent !important;
     background-color: transparent !important;
+}/* =========================================================
+   7. RESTORE PING (MENTION) BACKGROUND HIGHLIGHT
+   ========================================================= */
+/* Bring back the translucent yellow tint for messages that mention you */
+[class*="mentioned_"] {
+    background-color: rgba(250, 166, 26, 0.15) !important; /* Standard Discord yellow tint */
+    border-radius: 4px !important;
+}
+
+/* Make it slightly brighter when hovering over the pinged message */
+[class*="mentioned_"]:hover,
+[class*="mentioned_"]:focus-within {
+    background-color: rgba(250, 166, 26, 0.2) !important;
 }
