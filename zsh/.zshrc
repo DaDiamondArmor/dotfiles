@@ -11,7 +11,7 @@ alias cast="systemctl --user daemon-reload
 systemctl --user restart xdg-desktop-portal-gnome.service xdg-desktop-portal.service"
 alias clear="clear && fastfetch -l AmogOS"
 alias reflector="sudo reflector --country India --latest 5 --sort rate --save /etc/pacman.d/mirrorlist"
-alias fastfetch="fastfetch -l AmogOS"
+alias fastfetch="fastfetch --logo /home/diamond/belugachoso.png"
 
 setopt autocd
 bindkey -e
@@ -20,7 +20,7 @@ bindkey -e
 zstyle :compinstall filename '/home/diamond/.zshrc'
 autoload -U select-word-style
 autoload -Uz compinit
-# compinit
+compinit
 # End of lines added by compinstall
 eval "$(oh-my-posh init zsh)"
 # eval "$(starship init zsh)"
@@ -33,7 +33,7 @@ export PATH=$PATH:/home/diamond/.spicetify
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 #source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME expands to previous command
 export DISPLAY=:0
@@ -80,3 +80,5 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light marlonrichert/zsh-autocomplete
 ### End of Zinit's installer chunk
+
+source /usr/share/nvm/init-nvm.sh
